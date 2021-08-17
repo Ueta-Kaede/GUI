@@ -1,3 +1,5 @@
 //リソーススクリプト
+
+//BMPファイルの指定
 CompletionFigure BITMAP "backp3.bmp"
 HalfWayFigure BITMAP "backp5.bmp"

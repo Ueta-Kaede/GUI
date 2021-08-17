@@ -1,3 +1,4 @@
+//ウィンドウ表示の関係でShift-JISを使用しています
 #include <windows.h>
 
 #define BUTTON_START  10
@@ -25,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 
 	if (!RegisterClass(&winc)) return -1;
 
-	// メインウィンドウ
+	// ?ｿｽ?ｿｽ?ｿｽC?ｿｽ?ｿｽ?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE
 	hwnd = CreateWindow(
 			TEXT("Prototype") , TEXT("Prototype") ,
 			WS_OVERLAPPEDWINDOW | WS_VISIBLE ,
@@ -35,7 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 	);
 	ShowWindow(hwnd, SW_MAXIMIZE);
 
-	//完成図表示ウィンドウ
+	//?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ}?ｿｽ\?ｿｽ?ｿｽ?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE
 	LEFT = CreateWindow(
 		TEXT("STATIC") , NULL ,
 		WS_CHILD | WS_VISIBLE | WS_BORDER ,
@@ -43,7 +44,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 		hwnd , NULL , hInstance , NULL
 	);	
 
-	// 途中図表示ウィンドウ
+	// ?ｿｽr?ｿｽ?ｿｽ?ｿｽ}?ｿｽ\?ｿｽ?ｿｽ?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE
 	RIGHT = CreateWindow(
 		TEXT("STATIC") , NULL ,
 		WS_CHILD | WS_VISIBLE | WS_BORDER ,
@@ -51,7 +52,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 		hwnd , NULL , hInstance , NULL
 	);
 
-	// コスト表示ウィンドウ
+	// ?ｿｽR?ｿｽX?ｿｽg?ｿｽ\?ｿｽ?ｿｽ?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE
 	COSTS = CreateWindow(
 		TEXT("EDIT") , NULL ,
 		WS_CHILD | WS_VISIBLE | WS_BORDER | ES_MULTILINE | ES_READONLY ,
@@ -59,7 +60,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 		hwnd , (HMENU)BUTTON_SUBMIT , hInstance , NULL
 	);
 
-	// 開始ボタン
+	// ?ｿｽJ?ｿｽn?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ
 	CreateWindow(
 		TEXT("BUTTON") , TEXT("START") ,
 		WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON ,
@@ -67,7 +68,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 		hwnd , (HMENU)BUTTON_START , hInstance , NULL
 	);
 
-	// 終了ボタン
+	// ?ｿｽI?ｿｽ?ｿｽ?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ
 	CreateWindow(
 		TEXT("BUTTON") , TEXT("STOP") ,
 		WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON ,
@@ -75,7 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance , HINSTANCE hPrevInstance , PSTR lpCmdLin
 		hwnd , (HMENU)BUTTON_STOP , hInstance , NULL
 	);
 
-	// 送信ボタン
+	// ?ｿｽ?ｿｽ?ｿｽM?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ
     CreateWindow(
 		TEXT("BUTTON") , TEXT("SUBMIT") ,
 		WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON ,
@@ -99,13 +100,13 @@ LRESULT CALLBACK WndProc(HWND hwnd , UINT msg , WPARAM wp , LPARAM lp) {
 	RECT rectL, rectR;
 
 	switch (msg) {
-		//ウィンドウ終了
+		//?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE?ｿｽI?ｿｽ?ｿｽ
 		case WM_DESTROY:
 			DeleteObject(leftHBitmap);
 			DeleteObject(rightHBitmap);
 			PostQuitMessage(0);
 			return 0;
-		//ウィンドウ生成時
+		//?ｿｽE?ｿｽB?ｿｽ?ｿｽ?ｿｽh?ｿｽE?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ
 		case WM_CREATE:
 			leftHBitmap = LoadBitmap(
 				((LPCREATESTRUCT)lp)->hInstance ,
@@ -120,7 +121,7 @@ LRESULT CALLBACK WndProc(HWND hwnd , UINT msg , WPARAM wp , LPARAM lp) {
 			return 0;
 		case WM_COMMAND:{
 				switch(wp){
-					//開始ボタンクリック
+					//?ｿｽJ?ｿｽn?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽb?ｿｽN
 					case BUTTON_START:
 						// MessageBox(hwnd , TEXT("BUTTON_START") , TEXT("START") , MB_OK);
 						choiceCost++;
@@ -128,7 +129,7 @@ LRESULT CALLBACK WndProc(HWND hwnd , UINT msg , WPARAM wp , LPARAM lp) {
 						InvalidateRect(hwnd , NULL , TRUE);
 						InvalidateRect(COSTS , NULL , TRUE);
 						break;
-					//終了ボタンクリック
+					//?ｿｽI?ｿｽ?ｿｽ?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽb?ｿｽN
 					case BUTTON_STOP:
 						// MessageBox(hwnd , TEXT("BUTTON_STOP") , TEXT("STOP") , MB_OK);
 						// choiceCost++;
@@ -136,7 +137,7 @@ LRESULT CALLBACK WndProc(HWND hwnd , UINT msg , WPARAM wp , LPARAM lp) {
 						InvalidateRect(hwnd , NULL , TRUE);
 						InvalidateRect(COSTS , NULL , TRUE);
 						break;
-					//送信ボタンクリック
+					//?ｿｽ?ｿｽ?ｿｽM?ｿｽ{?ｿｽ^?ｿｽ?ｿｽ?ｿｽN?ｿｽ?ｿｽ?ｿｽb?ｿｽN
 					case BUTTON_SUBMIT:
 						// MessageBox(hwnd , TEXT("BUTTON_SUBMIT") , TEXT("SUBMIT") , MB_OK);
 						choiceCost++;
@@ -185,9 +186,9 @@ LRESULT CALLBACK WndProc(HWND hwnd , UINT msg , WPARAM wp , LPARAM lp) {
 			TextOut(hdc , 450 + 40 , 20 , TEXT("HalfWay Figure") , lstrlen(TEXT("HalfWay Figure")));
 			TextOut(hdc , 20 , 530 , TEXT("Costs") , lstrlen(TEXT("Costs")));
 
-			wsprintf(str , "%s%d" , TEXT("選択コスト："), choiceCost);
+			wsprintf(str , "%s%d" , TEXT("?ｿｽI?ｿｽ?ｿｽ?ｿｽR?ｿｽX?ｿｽg?ｿｽF"), choiceCost);
 			TextOut(costs , 5 , 0 , str , lstrlen(str));
-			wsprintf(str , "%s%d" , TEXT("交換コスト："), exchangeCost);
+			wsprintf(str , "%s%d" , TEXT("?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽR?ｿｽX?ｿｽg?ｿｽF"), exchangeCost);
 			TextOut(costs , 5 , 20 , str , lstrlen(str));
 
 			EndPaint(hwnd , &ps);
